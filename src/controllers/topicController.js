@@ -82,10 +82,6 @@ exports.getProblems = asyncHandler(async (req, res) => {
     try {
         const problems = await Problem.find({ subTopicId, topicId }).sort({ level: 1 });
 
-        if (problems.length === 0) {
-            return res.status(404).json({ success: false, message: "No problems found for the given SubTopic ID and Topic ID" });
-        }
-
         res.status(200).json({
             success: true,
             data: problems,
