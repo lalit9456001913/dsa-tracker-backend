@@ -13,6 +13,12 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+app.use('/healthCheck',(req,res)=>{
+    res.status(200).json({
+        success:true,
+        status:"api server is running"
+    })
+})
 app.use('/api/auth', authRoutes);
 app.use('/api/topics', topicRoutes);
 
