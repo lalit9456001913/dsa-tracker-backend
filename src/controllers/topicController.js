@@ -6,6 +6,7 @@ const Problem = require('../models/Problem');
 const asyncHandler = require('express-async-handler');
 
 exports.getTopics = asyncHandler(async (req, res) => {
+    console.log("get topics")
     const userId = req.user?._id;
     if (!userId) {
         return res.status(401).json({ success: false, message: "Unauthorized access" });
